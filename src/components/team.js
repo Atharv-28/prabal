@@ -32,7 +32,7 @@ const Team = () => {
 const styles = StyleSheet.create({
   container: {
     borderRadius: 15,
-    width: "80%",
+    width: "90%",
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",

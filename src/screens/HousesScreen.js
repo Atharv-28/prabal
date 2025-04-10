@@ -9,6 +9,7 @@ import {
   Image,
 } from "react-native";
 import Team from "../components/team";
+import Slogan from "../components/slogan";
 
 const HousesScreen = () => {
   return (
@@ -17,7 +18,6 @@ const HousesScreen = () => {
       style={styles.background}
     >
       <View style={styles.container}>
-
         <View style={styles.topContainer}>
           <Image
             source={require("../../assets/logo.png")}
@@ -29,7 +29,9 @@ const HousesScreen = () => {
           <Team />
         </View>
 
-
+        <View style={styles.teamSlogan}>
+          <Slogan house="Lannister" />
+        </View>
       </View>
     </ImageBackground>
   );
@@ -42,9 +44,12 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
     marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
-  topContainer: { 
+  topContainer: {
+    top: -150,
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 10,
@@ -55,12 +60,19 @@ const styles = StyleSheet.create({
   },
   teamContainer: {
     width: "100%",
-    flex: 0.8, 
+    // flex: 0.9,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 15,
     alignSelf: "center",
   },
+  teamSlogan: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 15,
+    alignSelf: "center",
+  }
 });
 
 export default HousesScreen;
