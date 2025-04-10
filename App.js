@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { StatusBar } from 'expo-status-bar';
-import IntroVid from './src/components/introVid'; // Intro Video Component
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import IntroVid from './src/components/introVid';
+import LoginScreen from './src/screens/LoginScreen';
+import HousesScreen from './src/screens/HousesScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   const [isFirstLaunch, setIsFirstLaunch] = useState(null);
@@ -14,7 +19,7 @@ export default function App() {
         setIsFirstLaunch(true);
         await AsyncStorage.setItem('hasLaunched', 'true');
       } else {
-        setIsFirstLaunch(true); // state of first launch (set true for testing)
+        setIsFirstLaunch(false);
       }
     };
     checkFirstLaunch();
@@ -30,16 +35,16 @@ export default function App() {
   }
 
   if (isFirstLaunch) {
-    return (
-      <IntroVid setIsFirstLaunch={setIsFirstLaunch} /> // Prop is to update the state of Firstlaunch in App.js
-    );
+    return <IntroVid setIsFirstLaunch={setIsFirstLaunch} />;
   }
 
   return (
-    <View style={styles.container}>
-      <Text>PRABAL</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen  name="Login" component={LoginScreen} options={{headerShown: false}} />
+        <Stack.Screen name="Houses" component={HousesScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -49,9 +54,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  video: {
-    width: '100%',
-    height: '100%',
   },
 });
