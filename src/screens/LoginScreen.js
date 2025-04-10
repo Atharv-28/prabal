@@ -26,13 +26,13 @@ const LoginScreen = ({ navigation }) => {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.textInput}
-          placeholder="Enter Username"
-          placeholderTextColor="#aaa"
+          placeholder="Username"
+          placeholderTextColor="#5a5a5a" // 808080(Alternate color)
         />
         <TextInput
           style={styles.textInput}
-          placeholder="Enter Password"
-          placeholderTextColor="#aaa"
+          placeholder="Password"
+          placeholderTextColor="#5a5a5a"
           secureTextEntry={true} 
         />
         <TouchableOpacity
@@ -62,38 +62,40 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   inputContainer: {
-    flex: 1,
+    position: "absolute", 
+    borderRadius: 15, 
+    bottom: 40, 
+    width: "80%", 
+    alignSelf: "center",
     alignItems: "center",
-    justifyContent: "flex-end",
-    paddingBottom: 40,
+    justifyContent: "center",
+    height: 250, 
+    backgroundColor: "rgba(255, 255, 255, 0.4)", 
+    gap: 10,
+    paddingHorizontal: 20,
   },
   textInput: {
-    width: "80%",
+    width: "100%",
     height: 40,
-    backgroundColor: "#fff",
-    borderRadius: 25,
-    paddingHorizontal: 15,
+    backgroundColor: "rgba(255, 255, 255, 0.05)",
+    borderRadius: 5,
+    paddingHorizontal: 10,
     marginBottom: 15,
     fontSize: 16,
     color: "#000",
-    /*shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 5, */
   },
   loginButton: {
-    backgroundColor: "#fff",
-    width: "50%",
+    backgroundColor: "black",
+    width: "100%",
     height: 40,
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
+    opacity: 1,
   },
   loginButtonText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#000",
+    fontSize: 14,
+    color: "#fff",
   },
 });
 
