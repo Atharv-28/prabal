@@ -42,7 +42,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen  name="Login" component={LoginScreen} options={{headerShown: false}} />
-        <Stack.Screen name="Houses" component={HousesScreen} />
+        <Stack.Screen name="Houses" component={HousesScreen} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
